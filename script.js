@@ -17,6 +17,15 @@ let counter = 0;
 //     gameScr.style.setProperty('display', 'none');
 //     ground.style.setProperty('display', 'block');
 // }
+    let song = new Audio();
+    song.src = "Punch Sound Effect - Gaming SFX.mp3";
+    let kickSound = new Audio();
+    kickSound.src = "Punch Sound Effect - Gaming SFX.mp3";
+    let punchSound = new Audio();
+    punchSound.src = "Punch Sound Effect - Gaming SFX.mp3";
+    let deathSound = new Audio();
+    let rightPunchSound = new Audio();
+    rightPunchSound.src = "Punch Sound Effect - Gaming SFX.mp3";
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -31,12 +40,14 @@ function checkKeyPress(key){
     } else if(key.keyCode == "83" && dead === false){
         punchFront();
     } else if(key.keyCode == "69" && gameStarted === false){
+        song.src = "Bishi Bashi Special Ost 9.mp3";
+        song.play();
         img.style.setProperty('content', `url("sprites/idle.png")`);
         gameStarted = true;
         leftEnemy.style.setProperty("animation", "leftEnemyAnim 5s infinite");
         rightEnemy.style.setProperty("animation", "rightEnemyAnim 5s infinite");
         frontEnemy.style.setProperty("animation", "frontEnemyAnim 8s infinite");
-        audio.style.setProperty("content", `url("Bishi Bashi Special Ost 9.mp3")`)
+        // audio.style.setProperty("content", `url("Bishi Bashi Special Ost 9.mp3")`)
         document.getElementById("gameScore").style.display = "none";
         document.getElementById("enemyCounter").style.display = "none";
     }
@@ -53,6 +64,8 @@ function punchRight(){
     var enemyPos = window.getComputedStyle(rightEnemy).getPropertyValue("top");
     var enemyPosInt = parseInt(enemyPos);
     if(enemyPosInt < -370){
+        
+        rightPunchSound.play();
         score += 15;
         counter += 1;
         // console.log(enemyPosInt);
@@ -78,6 +91,8 @@ function leftKick(){
     if(enemyPosInt < 150){
         score += 15;
         counter += 1;
+       
+        kickSound.play();
         // console.log('tes');
         leftEnemy.style.setProperty('animation', '0');
         leftEnemy.style.setProperty('top', `${enemyPosInt}px`);
@@ -98,6 +113,7 @@ function punchFront(){
     var enemyPos = window.getComputedStyle(frontEnemy).getPropertyValue("top");
     var enemyPosInt = parseInt(enemyPos);
     if(enemyPosInt < -100){
+        punchSound.play();
         score += 15;
         counter += 1;
         // console.log(enemyPosInt);
@@ -115,7 +131,7 @@ function punchFront(){
 leftEnemy.style.setProperty("animation", "0");
 rightEnemy.style.setProperty("animation", "0");
 frontEnemy.style.setProperty("animation", "0");
-audio.style.setProperty("content", "0");
+// audio.style.setProperty("content", "0");
 let gameStarted = false;
 function update(){
     if(gameStarted){
@@ -133,6 +149,8 @@ function update(){
             document.getElementById("gameStart").innerText = "Press 'E' to start again.";
             gameStarted = false;
             dead = true;
+            deathSound.src = "Death sound in Minecraft.mp3";
+            deathSound.play();
             img.style.setProperty('content', `url("sprites/dead-player.gif")`);
             leftEnemy.style.setProperty('animation', '0');
             leftEnemy.style.setProperty('top', `${leftEnemyPos}px`);
