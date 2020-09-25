@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Karate-Guy</title>
+</head>
+<body>
+    <!-- <embed src="Bishi Bashi Special Ost 9.mp3" autostart=true loop=false> -->
+        <audio src="Bishi Bashi Special Ost 9.mp3" style="display:none;" autoplay loop></audio>
+    <div id="title">
+    </div>
+    
+    <!-- <div id="gameScreen" onclick="activate()"><img src="7.png" /></div> -->
+    <h1 id="gameStart" style="text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: aliceblue;">Press 'E' to start the game.</h1>
+    <h2 id="gameScore" style="display: none; text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: aliceblue;">Score: </h2>
+    <h2 id="enemyCounter" style="display: none; text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: aliceblue;">Score: </h2>
+    <div id="game">
+        <img id="background" src="sprites/area.png" />
+        <div id="playerArea">
+            <div id="player"><img src="sprites/idle.png"/></div>
+        </div>
+        <div id="punchAreaLeft"></div>
+        <div id="punchAreaRight"></div>
+        <div id="punchAreaFront"></div>
+        <div id="leftEnemy"><img src="sprites/left-enemy.gif"/></div>
+        <div id="frontEnemy"><img src="sprites/left-enemy.gif"/></div>
+        <div id="rightEnemy"><img src="sprites/left-enemy.gif"/></div>
+    </div>
+    <div class="tips">
+        <div class="control">
+            <h3>Controls</h3>
+            <p>Press <span style="color: brown; font-weight: bold;">'A'</span> to kick left side.</p>
+            <p>Press <span style="color: brown; font-weight: bold;">'S'</span> to strike front.</p>
+            <p>Press <span style="color: brown; font-weight: bold;">'D'</span> to punch right.</p>
+            <h3>How to play?</h3>
+            <p>Your master have taught you all you need to know</p>
+            <p>Survive as long as you could</p>
+        </div>
+        <div class="guide">
+            <img style="display: block;" src="sprites/left-kick.png">
+            <hr>
+            <img style="display: block;" src="sprites/front-punch.png">
+            <hr>
+            <img style="display: block;" src="sprites/right-punch.png">
+        </div>
+    </div>
+    <div id="ground"></div>
+    <script src="script.js"></script>
+</body>
+</html>
